@@ -3,13 +3,13 @@
 The purpose of this project is to build a simple web-application to work with *bank accounts and associated them credit cards*.  
 ## 2. Scope
 Key features of the application:  
-* view and edit the list of bank accounts
-* filter the list of accounts by account number and client name  
-* add a new credit card to the selected bank account
-* view and edit the list of credit cards
-* filter the list of cards by account number and card number
-* deposit money to the selected credit card
-* transfer money to the specified credit card
+* View and edit the list of bank accounts
+* Filter the list of accounts by account number and client name  
+* Add a new credit card to the selected bank account
+* View and edit the list of credit cards
+* Filter the list of cards by account number and card number
+* Deposit money to the selected credit card
+* Transfer money to the specified credit card
 ## 3. Overall description
 ### 3.1 Bank account characteristics
 #### Users of the system should have the following management functions:  
@@ -17,7 +17,7 @@ Key features of the application:
 ##### Basic Action: 
   * The user selects the <span style="color:blue">Accounts</span> tab
   * The system generates and displays a list of all bank accounts
-    ![](D:\BJC2021\Software requirements specification\Слайд1.PNG)
+    ![Slide 1](https://user-images.githubusercontent.com/75541561/136701674-b58d060d-c338-4f5f-b04a-9bfa4dbfae39.PNG)
   * The list of bank accounts includes the following columns:
     * Account number
     * Client's first and last name
@@ -30,7 +30,7 @@ Key features of the application:
   * The system validates the given search patterns
   * In the case, the search patterns are valid, the system generates and displays a list of bank accounts matching
     the search patterns or the info message "No data found matching the given filter criteria"
-    ![](D:\BJC2021\Software requirements specification\Слайд2.PNG)
+    ![Slide 2](https://user-images.githubusercontent.com/75541561/136701730-6dffdb4d-6445-47b0-bea2-8ddc82a42557.PNG)
   * In the case, the search patterns are invalid, the system generates error message "The given filter criteria 
   are incorrect"
   * To cancel the filter, the user clicks the <span style="color:blue">RESET</span> and the system generates and 
@@ -40,7 +40,7 @@ Key features of the application:
 ##### Action to Edit a Bank Account:
   * The user clicks the <span style="color:blue">Edit</span> in the line of the selected bank account
   * The system redirects the user to the page containing an account editing form
-    ![](D:\BJC2021\Software requirements specification\Слайд3.PNG)
+    ![Slide 3](https://user-images.githubusercontent.com/75541561/136701736-d74e8dc2-af68-4988-a85a-945739a3e21d.PNG)
   * The user changes editable data
   * In the case user clicks the <span style="color:blue">SAVE</span>:
     * The system validates the given data
@@ -58,7 +58,7 @@ Key features of the application:
   "The account {its number is indicated} cannot be deleted" and displays a list of associated credit cards
   * In the case, the deleted account isn't associated with credit cards:
     * The system asks the user to confirm the deletion of the account
-      ![](D:\BJC2021\Software requirements specification\Слайд4.PNG)
+      ![Slide 4](https://user-images.githubusercontent.com/75541561/136701745-73d414b6-be01-409c-9a75-8c3c2d7b46c4.PNG)
     * If user confirms the account deletion: 
       * The system removes it in the database
       * The system generates and displays a list of all bank accounts with updated data
@@ -73,7 +73,7 @@ Key features of the application:
 * Basic Action:
   * The user clicks the <span style="color:blue">CREATE NEW</span>
   * The system redirects the user to the page containing an account creating form
-    ![](D:\BJC2021\Software requirements specification\Слайд5.PNG)
+    ![Slide 5](https://user-images.githubusercontent.com/75541561/136701754-01b87197-20f9-431a-bf60-ae26c0c87f75.PNG)
   * The system automatically generates a new bank account number
   * The system automatically sets a registration date corresponding to the current date
   * The user enters the client's first and last name
