@@ -30,7 +30,7 @@ Key features of the application:
   * The system validates the given search patterns
   * In the case, the search patterns are valid, the system generates and displays a list of bank accounts matching
     the search patterns or the info message "No data found matching the given filter criteria"  
-  <img alt="Slide 2" height="60%" src="https://user-images.githubusercontent.com/75541561/136701730-6dffdb4d-6445-47b0-bea2-8ddc82a42557.PNG" width="60%"/>
+    <img alt="Slide 2" height="60%" src="https://user-images.githubusercontent.com/75541561/136701730-6dffdb4d-6445-47b0-bea2-8ddc82a42557.PNG" width="60%"/>
   * In the case, the search patterns are invalid, the system generates error message "The given filter criteria 
   are incorrect"
   * To cancel the filter, the user clicks the **RESET** and the system generates and 
