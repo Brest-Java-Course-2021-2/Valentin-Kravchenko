@@ -98,13 +98,15 @@ Key features of the application:
 ##### Basic Action:
 * The user selects the **Cards** tab
     * The system generates and displays a list of all credit cards
-      <img alt="Slide 6" height="60%" src="https://user-images.githubusercontent.com/75541561/136773542-9fe29f38-ad61-4642-8bd9-c1d19db45584.PNG" width="60%"/>
+      <img alt="Slide 6" height="60%" src="https://user-images.githubusercontent.com/75541561/136774292-be7e4fb4-bf0a-4c42-ad67-180c04306c32.PNG" width="60%"/>
     * The list of bank accounts includes the following columns:
         * Bank account number associated with the credit card 
         * Credit card number
         * The expiration date of the credit card 
         * Current credit card balance
         * Links to remove the card, deposit and transfer money
+#### Action to Filter the List of Credit Cards:
+        
 ##### Action to Remove a Credit Card:
   * The user clicks the **Remove** in the line of the selected credit card
   * The system checks the current balance of the removed card
