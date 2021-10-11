@@ -29,8 +29,10 @@ Key features of the application:
   * The user clicks the **APPLY**
   * The system validates the given search patterns
   * In the case, the search patterns are valid, the system generates and displays a list of bank accounts matching
-    the search patterns or the info message "No data found matching the given filter criteria"  
+    the search patterns  
     <img alt="Slide 2" height="60%" src="https://user-images.githubusercontent.com/75541561/136701730-6dffdb4d-6445-47b0-bea2-8ddc82a42557.PNG" width="60%"/>
+  * In the case, there are no bank accounts matching the search patterns, the system generates an info message  
+  "No data found matching the given filter criteria"
   * In the case, the search patterns are invalid, the system generates error message "The given filter criteria 
   are incorrect"
   * To cancel the filter, the user clicks the **RESET** and the system generates and 
@@ -47,10 +49,11 @@ Key features of the application:
     * In the case, the given data is valid:
       * The system updates this data in the database
       * In the case, an error occurred while updating data, the system generates an error message "Error saving data"  
-      * In the case, the update was successful, the system redirect the user to the accounts page
-      * The system generates and displays a list of all bank accounts with updated data
-    * In the case, the given data is invalid, the system generates error message "The given data are incorrect"
-  * In the case, user clicks the **CANCEL**, the system doesn't update the account and 
+      * In the case, the update was successful:
+        * The system redirect the user to the accounts page
+        * The system generates and displays a list of all bank accounts with updated data
+    * In the case, the given data is invalid, the system generates an error message "The given data is incorrect"
+  * In the case, user clicks the **CANCEL**, the system doesn't update the selected bank account and 
   redirects the user to the accounts page
 ##### Action to Remove a Bank Account:
   * The user clicks the **Remove** in the line of the selected bank account
@@ -105,8 +108,20 @@ Key features of the application:
         * The expiration date of the credit card 
         * Current credit card balance
         * Links to remove the card, deposit and transfer money
-#### Action to Filter the List of Credit Cards:
-        
+##### Action to Filter the List of Credit Cards:
+  * The user enters a search pattern into each input field or one of them
+  * The user clicks the **APPLY**
+  * The system validates the given search patterns
+  * In the case, the search patterns are valid, the system generates and displays a list of credit cards matching
+    the search patterns
+  * In the case, there are no credit cards matching the search patterns, the system generates an info message  
+  "No data found matching the given filter criteria"
+  * In the case, the search patterns are invalid, the system generates error message "The given filter criteria
+  are incorrect"
+  * To cancel the filter, the user clicks the **RESET** and the system generates and displays a list of all 
+  credit cards
+  * The search pattern for the account number is entered in the field located above the Account Number column,   
+  and for the card number it is entered in the field located above the Card Number column
 ##### Action to Remove a Credit Card:
   * The user clicks the **Remove** in the line of the selected credit card
   * The system checks the current balance of the removed card
