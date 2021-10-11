@@ -45,30 +45,36 @@ Key features of the application:
   * In the case, user clicks the **SAVE**:
     * The system validates the given data
     * In the case, the given data is valid:
-      * The system updates it in the database
-      * The system redirect the user to the accounts page
+      * The system updates this data in the database
+      * In the case, an error occurred while updating data, the system generates an error message "Error saving data"  
+      * In the case, the update was successful, the system redirect the user to the accounts page
       * The system generates and displays a list of all bank accounts with updated data
     * In the case, the given data is invalid, the system generates error message "The given data are incorrect"
   * In the case, user clicks the **CANCEL**, the system doesn't update the account and 
   redirects the user to the accounts page
 ##### Action to Remove a Bank Account:
   * The user clicks the **Remove** in the line of the selected bank account
-  * The system checks the deleted account for associated credit cards 
-  * In the case, the deleted account is associated to credit cards, the system generates error message 
-  "The account {its number is indicated} cannot be deleted" and displays a list of associated credit cards
-  * In the case, the deleted account isn't associated with credit cards:
+  * The system checks the removed account for associated credit cards 
+  * In the case, the removed account is associated to credit cards, the system generates an error message 
+  "The bank account {its number is indicated} cannot be deleted" and displays a list of associated credit cards
+  * In the case, the removed account isn't associated with credit cards:
     * The system asks the user to confirm the account deletion   
       <img alt="Slide 4" height="60%" src="https://user-images.githubusercontent.com/75541561/136701745-73d414b6-be01-409c-9a75-8c3c2d7b46c4.PNG" width="60%"/>
     * If user confirms the account deletion: 
-      * The system removes it in the database
-      * The system generates and displays a list of all bank accounts with updated data
-    * If user doesn't confirm the account deletion, the system doesn't remove the account
+      * The system removes it from the database
+      * In the case, an error occurred while deleting data, the system generates an error message "Error deleting data"
+      * In the case, the deletion was successful, the system generates and displays a list of all bank accounts   
+      with updated data
+    * If user doesn't confirm the account deletion, the system doesn't remove the selected account
 ##### Action to Add a New Credit Card to the Bank Account:
   * The user clicks the **Add Card** in the line of the selected bank account
   * The system automatically generates a new credit card number
   * The system automatically sets the new credit card balance to zero
-  * The system inserts these data in the database
-  * The system generates and displays a list of all bank accounts with new data  
+  * The system inserts this data in the database
+  * In the case, an error occurred while inserting data, the system generates an error message "Failed to add the credit card"
+  * In the case, the insertion was successful:
+    * The system generates an info message "New credit card successfully added"
+    * The system generates and displays a list of all bank accounts with new data  
 #### 3.1.2 Create a New Bank Account
 * Basic Action:
   * The user clicks the **CREATE NEW**
@@ -78,8 +84,41 @@ Key features of the application:
   * The system automatically sets a registration date corresponding to the current date
   * The user enters the client's first and last name
   * In the case, user clicks the **CREATE**:
-    * The system inserts these data in the database
-    * The system redirect the user to the accounts page
-    * The system generates and displays a list of all bank accounts with new data
-  * In the case, user clicks the **CANCEL**, the system doesn't create the account and
-  redirects the user to the accounts page
+    * The system inserts this data in the database
+    * In the case, an error occurred while inserting data, the system generates an error message "Error saving data"
+    * In the case, the insertion was successful:
+      * The system redirect the user to the accounts page
+      * The system generates an info message "New bank account successfully created"
+      * The system generates and displays a list of all bank accounts with new data
+  * In the case, user clicks the **CANCEL**, the system doesn't create the account and redirects the user   
+  to the accounts page
+### 3.2 Credit card characteristics
+**Users of the system should have the following management functions:**
+#### 3.2.1 View, filter, and edit the list of credit cards:
+##### Basic Action:
+* The user selects the **Cards** tab
+    * The system generates and displays a list of all credit cards
+      <img alt="Slide 6" height="60%" src="https://user-images.githubusercontent.com/75541561/136773542-9fe29f38-ad61-4642-8bd9-c1d19db45584.PNG" width="60%"/>
+    * The list of bank accounts includes the following columns:
+        * Bank account number associated with the credit card 
+        * Credit card number
+        * The expiration date of the credit card 
+        * Current credit card balance
+        * Links to remove the card, deposit and transfer money
+##### Action to Remove a Credit Card:
+  * The user clicks the **Remove** in the line of the selected credit card
+  * The system checks the current balance of the removed card
+  * In the case, the current balance of the removed card is greater than zero, the system generates an error message  
+  "The credit card {its number is indicated} cannot be deleted"
+  * In the case, the current balance of the removed card is zero:
+      * The system asks the user to confirm the card deletion
+      * If user confirms the card deletion:
+        * The system removes it from the database
+        * In the case, an error occurred while deleting data, the system generates an error message "Error deleting data"
+        * In the case, the deletion was successful, the system generates and displays a list of all credit cards   
+          with updated data
+  * If user doesn't confirm the card deletion, the system doesn't remove the selected card
+##### Action to Deposit Money:
+
+##### Action to Transfer Money:
+  
