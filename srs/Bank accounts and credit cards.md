@@ -19,7 +19,7 @@ The application allows users to:
   * The system generates and displays a list of all bank accounts
     <img alt="Slide 1" height="60%" src="https://user-images.githubusercontent.com/75541561/136829329-6ced4998-c778-4ba0-a382-9d81a49a7757.PNG" width="60%"/>
   * The list of bank accounts includes the following columns:
-    * Account number
+    * Bank account number
     * Client's first and last name
     * Registration date of the client in the system
     * Total number of credit cards associated with the account
@@ -141,12 +141,18 @@ The application allows users to:
 ##### Action to Deposit Money:
   * The user clicks the **Deposit** in the line of the selected bank account
   * The system redirects the user to the page containing a money deposit form
+    <img alt="Slide 7" height="60%" src="https://user-images.githubusercontent.com/75541561/136773561-5ff82504-d15b-4e9c-a651-1de50513c490.PNG" width="60%"/>
   * The user enters amount of money what will be added to the credit card balance
+  * The user clicks the **ACCEPT**
   * The system validates the given amount of money
   * In the case, the given amount of money is correct:
     * The system increases the credit card balance by the given amount of money
     * The system updates this balance in the database
+    * !In progress
 ##### Action to Transfer Money:
   * The user clicks the **Transfer** in the line of the selected bank account
-  * The system redirects the user to the page containing a money transfer form  
+  * The system redirects the user to the page containing a money transfer form
+    <img alt="Slide 8" height="60%" src="https://user-images.githubusercontent.com/75541561/136773575-f0cf0e74-d76b-46cd-af59-4d0cf6ad4e23.PNG" width="60%"/>
+  * !In progress
+
   
