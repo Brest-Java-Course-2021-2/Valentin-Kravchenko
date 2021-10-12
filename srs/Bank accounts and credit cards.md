@@ -2,7 +2,7 @@
 ## 1. Purpose
 The purpose of this project is to build a simple web-application to work with *bank accounts and associated them credit cards*.  
 ## 2. Scope
-Key features of the application:  
+The application allows users to:  
 * View and edit the list of bank accounts
 * Filter the list of accounts by account number and client name  
 * Add a new credit card to the selected bank account
@@ -11,13 +11,13 @@ Key features of the application:
 * Deposit money to the selected credit card
 * Transfer money to the specified credit card
 ## 3. Overall description
-### 3.1 Bank account characteristics
+### 3.1 Bank account requirements
 **Users of the system should have the following management functions:**  
 #### 3.1.1 View, filter, and edit the list of bank accounts:
 ##### Basic Action: 
   * The user selects the **Accounts** tab
   * The system generates and displays a list of all bank accounts
-    <img alt="Slide 1" height="60%" src="https://user-images.githubusercontent.com/75541561/136701674-b58d060d-c338-4f5f-b04a-9bfa4dbfae39.PNG" width="60%"/>
+    <img alt="Slide 1" height="60%" src="https://user-images.githubusercontent.com/75541561/136829329-6ced4998-c778-4ba0-a382-9d81a49a7757.PNG" width="60%"/>
   * The list of bank accounts includes the following columns:
     * Account number
     * Client's first and last name
@@ -30,7 +30,7 @@ Key features of the application:
   * The system validates the given search patterns
   * In the case, the search patterns are valid, the system generates and displays a list of bank accounts matching
     the search patterns  
-    <img alt="Slide 2" height="60%" src="https://user-images.githubusercontent.com/75541561/136701730-6dffdb4d-6445-47b0-bea2-8ddc82a42557.PNG" width="60%"/>
+    <img alt="Slide 2" height="60%" src="https://user-images.githubusercontent.com/75541561/136829371-e5c7e9ef-11a5-41e1-9b6c-998f8b8f1bf4.PNG" width="60%"/>
   * In the case, there are no bank accounts matching the search patterns, the system generates an info message  
   "No data found matching the given filter criteria"
   * In the case, the search patterns are invalid, the system generates error message "The given filter criteria 
@@ -42,7 +42,7 @@ Key features of the application:
 ##### Action to Edit a Bank Account:
   * The user clicks the **Edit** in the line of the selected bank account
   * The system redirects the user to the page containing an account editing form
-    <img alt="Slide 3" height="60%" src="https://user-images.githubusercontent.com/75541561/136701736-d74e8dc2-af68-4988-a85a-945739a3e21d.PNG" width="60%"/>
+    <img alt="Slide 3" height="60%" src="https://user-images.githubusercontent.com/75541561/136829439-f5494296-cd82-4332-9d20-d613250ae615.PNG" width="60%"/>
   * The user changes the editable data
   * In the case, user clicks the **SAVE**:
     * The system validates the given data
@@ -62,7 +62,7 @@ Key features of the application:
   "The bank account {its number is indicated} cannot be deleted" and displays a list of associated credit cards
   * In the case, the removed account isn't associated with credit cards:
     * The system asks the user to confirm the account deletion   
-      <img alt="Slide 4" height="60%" src="https://user-images.githubusercontent.com/75541561/136701745-73d414b6-be01-409c-9a75-8c3c2d7b46c4.PNG" width="60%"/>
+      <img alt="Slide 4" height="60%" src="https://user-images.githubusercontent.com/75541561/136829476-d925f040-473b-41d6-96ab-efb6eb07f660.PNG" width="60%"/>
     * If user confirms the account deletion: 
       * The system removes it from the database
       * In the case, an error occurred while deleting data, the system generates an error message "Error deleting data"
@@ -87,15 +87,18 @@ Key features of the application:
   * The system automatically sets a registration date corresponding to the current date
   * The user enters the client's first and last name
   * In the case, user clicks the **CREATE**:
-    * The system inserts this data in the database
-    * In the case, an error occurred while inserting data, the system generates an error message "Error saving data"
-    * In the case, the insertion was successful:
-      * The system redirect the user to the accounts page
-      * The system generates an info message "New bank account successfully created"
-      * The system generates and displays a list of all bank accounts with new data
+    * The system validates the given data
+    * In the case, the given data is valid:
+      * The system inserts this data in the database
+      * In the case, an error occurred while inserting data, the system generates an error message "Error saving data"
+      * In the case, the insertion was successful:
+        * The system redirect the user to the accounts page
+        * The system generates an info message "New bank account successfully created"
+        * The system generates and displays a list of all bank accounts with new data
+    * In the case, the given data is invalid, the system generates an error message "The given data is incorrect" 
   * In the case, user clicks the **CANCEL**, the system doesn't create the account and redirects the user   
   to the accounts page
-### 3.2 Credit card characteristics
+### 3.2 Credit card requirements
 **Users of the system should have the following management functions:**
 #### 3.2.1 View, filter, and edit the list of credit cards:
 ##### Basic Action:
@@ -136,6 +139,14 @@ Key features of the application:
           with updated data
   * If user doesn't confirm the card deletion, the system doesn't remove the selected card
 ##### Action to Deposit Money:
-
+  * The user clicks the **Deposit** in the line of the selected bank account
+  * The system redirects the user to the page containing a money deposit form
+  * The user enters amount of money what will be added to the credit card balance
+  * The system validates the given amount of money
+  * In the case, the given amount of money is correct:
+    * The system increases the credit card balance by the given amount of money
+    * The system updates this balance in the database
 ##### Action to Transfer Money:
+  * The user clicks the **Transfer** in the line of the selected bank account
+  * The system redirects the user to the page containing a money transfer form  
   
