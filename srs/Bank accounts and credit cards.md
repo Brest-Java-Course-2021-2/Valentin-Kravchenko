@@ -141,18 +141,42 @@ The application allows users to:
 ##### Action to Deposit Money:
   * The user clicks the **Deposit** in the line of the selected bank account
   * The system redirects the user to the page containing a money deposit form
-    <img alt="Slide 7" height="60%" src="https://user-images.githubusercontent.com/75541561/136773561-5ff82504-d15b-4e9c-a651-1de50513c490.PNG" width="60%"/>
+    <img alt="Slide 7" height="60%" src="https://user-images.githubusercontent.com/75541561/137110998-5469c7bc-f1c9-46e0-9331-153bb6a23d04.PNG" width="60%"/>
   * The user enters amount of money what will be added to the credit card balance
   * The user clicks the **ACCEPT**
   * The system validates the given amount of money
   * In the case, the given amount of money is correct:
     * The system increases the credit card balance by the given amount of money
     * The system updates this balance in the database
-    * !In progress
+    * In the case, an error occurred while updating data, the system generates an error message "Failed to deposit money"
+      * In the case, the update was successful:
+        * The system redirect the user to the cards page
+        * The system generates and displays a list of all credit cards with updated data
+    * In the case, the given amount of money is incorrect, the system generates an error message "The given amount of money is incorrect"
+  * In the case, user clicks the **CANCEL**, the system doesn't deposit money to the selected credit card and
+  redirects the user to the cards page
 ##### Action to Transfer Money:
   * The user clicks the **Transfer** in the line of the selected bank account
   * The system redirects the user to the page containing a money transfer form
-    <img alt="Slide 8" height="60%" src="https://user-images.githubusercontent.com/75541561/136773575-f0cf0e74-d76b-46cd-af59-4d0cf6ad4e23.PNG" width="60%"/>
-  * !In progress
-
+    <img alt="Slide 8" height="60%" src="https://user-images.githubusercontent.com/75541561/137111057-f5da3cb7-a0ea-4901-a49e-62698982634f.PNG" width="60%"/>
+  * The user enters credit card number to transfer money 
+  * The user enters amount of money what will be transferred to the specified credit card
+  * The user clicks the **ACCEPT**
+  * The system validates the credit card number and the given amount of money
+  * In the case, the given data is correct:
+    * The system checks the source credit card balance for the  amount of money debited 
+    * In the case, the check was successful:
+      * The system decreases the source credit card balance by the given amount of money
+      * The system increases the target credit card balance by the given amount of money
+      * The system updates these balances in the database
+      * In the case, an error occurred while updating data:  
+        * The system generates an error message "Failed to transfer money"
+        * The system rolls back updates
+      * In the case, the update was successful:
+          * The system redirect the user to the cards page
+          * The system generates and displays a list of all credit cards with updated data
+    * In the case, the check failed, the system generates an error message "Money transfer isn't possible" 
+  * In the case, the given data is incorrect, the system generates an error message "The given data is incorrect"
+  * In the case, user clicks the **CANCEL**, the system doesn't transfer money to the specified credit card and
+  redirects the user to the cards page
   
