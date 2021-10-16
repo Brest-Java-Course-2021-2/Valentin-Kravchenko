@@ -1,4 +1,4 @@
-package com.epam.brest.io;
+package com.epam.brest.resource;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -12,7 +12,7 @@ import java.util.Objects;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 
-public class ResourceHandler {
+public class TxtFileResourceHandler implements ResourceHandler {
 
     public NavigableMap<BigDecimal, BigDecimal> getMapPrice(String resourceFile) {
         URL resource = getClass().getClassLoader().getResource(resourceFile);
