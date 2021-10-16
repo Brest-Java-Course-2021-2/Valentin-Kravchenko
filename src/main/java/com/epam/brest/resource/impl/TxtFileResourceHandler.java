@@ -14,7 +14,7 @@ public class TxtFileResourceHandler implements ResourceHandler {
     @Override
     public NavigableMap<BigDecimal, BigDecimal> getMapPrice(String resourceFile) {
 
-        return ResourceUtils.getLines(resourceFile)
+        return ResourceUtils.getStream(resourceFile)
                             .filter(line -> !line.startsWith("#"))
                             .map(line -> line.split("-"))
                             .collect(Collectors.toMap(arr -> BigDecimal.valueOf(Double.parseDouble(arr[0])),
@@ -26,7 +26,7 @@ public class TxtFileResourceHandler implements ResourceHandler {
 
     @Override
     public List<String> getMessages(String resourceFile) {
-        return ResourceUtils.getLines(resourceFile).toList();
+        return ResourceUtils.getStream(resourceFile).toList();
     }
 
 }

@@ -15,7 +15,7 @@ public final class ResourceUtils {
 
     }
 
-    public static Stream<String> getLines(String resourceFile) {
+    public static Stream<String> getStream(String resourceFile) {
         URL resource = ResourceUtils.class.getClassLoader().getResource(resourceFile);
         if (Objects.isNull(resource)) {
             throw new IllegalArgumentException("File " + resourceFile + " not found!");
