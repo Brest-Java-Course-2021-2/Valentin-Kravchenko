@@ -13,7 +13,6 @@ public class TxtFileResourceHandler implements ResourceHandler {
 
     @Override
     public NavigableMap<BigDecimal, BigDecimal> getMapPrice(String resourceFile) {
-
         return ResourceUtils.getStream(resourceFile)
                             .filter(line -> !line.startsWith("#"))
                             .map(line -> line.split("-"))
