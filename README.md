@@ -15,3 +15,4 @@ The delivery cost is calculated according to the following formula:
 ```
 Delivery_cost = weight * price_per_km + distance * price_per_km 
 ```
+The cost calculation is performed in a cyclic mode. Enter zero at any time for any parameter to exit it

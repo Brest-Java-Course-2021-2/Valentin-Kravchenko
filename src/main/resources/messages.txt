@@ -1,2 +1,2 @@
-Please, enter weight:
-Please, enter distance:
+>Please, enter weight:
+>Please, enter distance:
