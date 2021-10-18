@@ -1,59 +1,42 @@
 package com.epam.brest;
 
-import com.epam.brest.calc.Calc;
-import com.epam.brest.calc.CalcImpl;
-import com.epam.brest.io.ResourceHandler;
+import com.epam.brest.calc.DeliveryCalculator;
+import com.epam.brest.calc.impl.DeliveryCalculatorImpl;
+import com.epam.brest.model.Action;
+import com.epam.brest.model.impl.GetDataAction;
+import com.epam.brest.resource.ResourceHandler;
+import com.epam.brest.resource.impl.TxtFileResourceHandler;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.NavigableMap;
-import java.util.Objects;
 import java.util.Scanner;
+
+import static com.epam.brest.model.Status.EXIT;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        BigDecimal weight;
-        BigDecimal pricePerKg;
-        BigDecimal distance;
-        BigDecimal pricePerKm;
+        ResourceHandler resourceHandler = new TxtFileResourceHandler();
+        NavigableMap<BigDecimal, BigDecimal> mapPricePerKg = resourceHandler.getMapPrice("price_per_kg.txt");
+        NavigableMap<BigDecimal, BigDecimal> mapPricePerKm = resourceHandler.getMapPrice("price_per_km.txt");
+        List<String> messages = resourceHandler.getMessages("messages.txt");
 
-        Calc calc = new CalcImpl();
-
-        ResourceHandler resourceHandler = new ResourceHandler();
-        NavigableMap<BigDecimal, BigDecimal> mapPricePerKg = resourceHandler.getMapPrice("pricePerKg.txt");
-        NavigableMap<BigDecimal, BigDecimal> mapPricePerKm = resourceHandler.getMapPrice("pricePerKm.txt");
+        DeliveryCalculator deliveryCalculator = new DeliveryCalculatorImpl(mapPricePerKg, mapPricePerKm);
 
         try (Scanner scanner = new Scanner(System.in)) {
-            while (true) {
-                weight = getValueFromConsole(scanner, "Enter weight: ");
-                if (BigDecimal.ZERO.equals(weight)) {
-                    break;
-                }
-                distance = getValueFromConsole(scanner, "Enter length: ");
-                if (BigDecimal.ZERO.equals(distance)) {
-                    break;
-                }
-                pricePerKg = getPrice(mapPricePerKg, weight);
-                pricePerKm = getPrice(mapPricePerKm, distance);
-                System.out.println("Delivery cost: " + calc.calcCost(weight, pricePerKg, distance, pricePerKm));
+            Action currentAction = new GetDataAction(scanner, messages, deliveryCalculator);
+            while (currentAction.getStatus() != EXIT) {
+                displayStatus(currentAction);
+                currentAction = currentAction.perform();
             }
+            displayStatus(currentAction);
         }
     }
 
-    private static BigDecimal getValueFromConsole(Scanner scanner, String outputMessage) {
-        BigDecimal enteredValue;
-        System.out.print(outputMessage);
-        enteredValue = scanner.nextBigDecimal();
-        return enteredValue;
-    }
-
-    private static BigDecimal getPrice(NavigableMap<BigDecimal, BigDecimal> mapPrice, BigDecimal requiredValue) {
-        BigDecimal price = mapPrice.get(requiredValue);
-        if (Objects.nonNull(price)) {
-            return price;
-        }
-        return mapPrice.floorEntry(requiredValue).getValue();
+    private static void displayStatus(Action action) {
+        System.out.println("Current status: " + action.getStatus());
     }
 
 }
